@@ -12,7 +12,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="user in users" :key="user.id">
+            <tr v-for="user in users" :key="user.id" @click="showForm(user)">
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.address.street }}</td>
@@ -27,7 +27,12 @@
 
 <script>
 export default {
-  props: ['users']
+  props: ['users'],
+  methods: {
+    showForm(user){
+      this.$parent.showForm(user);
+    }
+  }
 }
 </script>
 
